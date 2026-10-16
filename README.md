@@ -1,51 +1,56 @@
-
 # HANU DIGIHIVE Website
 
-A responsive digital marketing agency website built using HTML, CSS and JavaScript.
+A responsive, animated HTML/CSS/JavaScript agency website using the existing black-and-gold visual identity.
 
-## Project Structure
+## File structure
 
-hanu-digihive-website/
+```text
+hanu_digihive_website/
 ├── index.html
+├── privacy.html
+├── robots.txt
+├── sitemap.xml
+├── README.md
+├── assets/
+│   ├── favicon.svg
+│   └── og-cover.svg
 ├── css/
 │   └── style.css
-├── js/
-│   └── main.js
-└── README.md
+└── js/
+    └── main.js
+```
 
-## Features
+## Run locally
 
-- Responsive layout for desktop, tablet and mobile
-- Mobile navigation menu
-- Services section with nine service cards
-- About section and four-step process
-- Contact form with email-app integration
-- WhatsApp contact shortcut
-- Scroll reveal animations
-- SEO description and page title
+Open `index.html` in a browser, or use VS Code's Live Server extension. Keep the folder structure unchanged because the HTML references `css/style.css` and `js/main.js`.
 
-## Run Locally
+## Before publishing
 
-1. Keep the folder structure unchanged.
-2. Open the project in Visual Studio Code.
-3. Install the Live Server extension if needed.
-4. Right-click index.html.
-5. Select "Open with Live Server".
+1. Confirm the contact email, both phone numbers, address, and domain are correct.
+2. Replace the sample concept artwork in the portfolio with real approved projects. The current panels are labelled as concepts and do not claim client work or results.
+3. Replace Instagram, Facebook and LinkedIn links in the footer with HANU DIGIHIVE's actual profile URLs.
+4. Add approved founder roles, biographies and photographs if you want to publish them.
+5. Confirm the domain's canonical URL and sitemap URLs if the live website uses a different domain or non-www version.
+6. Review the privacy notice against your actual data handling and applicable law.
+7. Test mobile layout, form submission, contact links, accessibility, page speed and HTTPS on the deployed site.
 
-You can also open index.html directly in a browser.
+## Contact form setup
 
-## Contact Form
+The form is configured to send an AJAX request to:
 
-The form opens the visitor's default email application and prepares an email
-addressed to info@hanudigihive.com.
+`https://formsubmit.co/ajax/info@hanudigihive.com`
 
-It does not send an email automatically. For direct website submissions,
-connect the form to a backend or a form-processing service.
+FormSubmit typically requires the inbox owner to activate the address using the confirmation email after the first submission. Test the form on the deployed website and check spam/junk folders. Until activation is complete, visitors can use the WhatsApp link or email directly. The browser will show a fallback message if submission cannot be confirmed.
 
-## Website
+For a production site that needs more control, replace this endpoint in `js/main.js` with a backend or trusted form service endpoint. Add server-side validation and spam protection for a custom backend. Do not put private API keys or credentials in front-end JavaScript.
 
-https://www.hanudigihive.com
+## SEO and social links
 
-## Copyright
+- `index.html` includes title, description, canonical URL, Open Graph metadata and basic `MarketingAgency` structured data.
+- `robots.txt` and `sitemap.xml` use `https://www.hanudigihive.com/`; update these if your canonical domain differs.
+- `assets/og-cover.svg` is a simple social-sharing cover. Some social platforms prefer a raster image such as JPG/PNG; if needed, create a 1200 × 630 PNG version.
+- The social profile links currently point to platform homepages intentionally; replace them with the actual agency profiles.
 
-© HANU DIGIHIVE. All rights reserved.
+## Notes
+
+No analytics tracker, ad pixel, fabricated testimonials, fake client logos or invented performance metrics are included. Add analytics only after deciding what data you need and implementing the appropriate consent and privacy disclosures.

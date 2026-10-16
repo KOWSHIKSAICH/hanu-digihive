@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#1d1a13"/><stop offset="1" stop-color="#080808"/></linearGradient><radialGradient id="r"><stop stop-color="#f4b942" stop-opacity=".3"/><stop offset="1" stop-color="#f4b942" stop-opacity="0"/></radialGradient></defs>
+<rect width="1200" height="630" fill="url(#g)"/><circle cx="930" cy="280" r="380" fill="url(#r)"/>
+<g fill="none" stroke="#f4b942" stroke-width="2" opacity=".8"><path d="M900 105l100 58v116l-100 58-100-58V163z"/><path d="M900 221l100 58v116l-100 58-100-58V279z"/><path d="M900 337l100 58v116l-100 58-100-58V395z"/></g>
+<text x="90" y="130" fill="#f4b942" font-family="Arial,sans-serif" font-size="22" font-weight="700" letter-spacing="8">HANU DIGIHIVE</text>
+<text x="90" y="270" fill="#f5f3ed" font-family="Arial,sans-serif" font-size="65" font-weight="800">YOUR VISION.</text>
+<text x="90" y="355" fill="#f4b942" font-family="Arial,sans-serif" font-size="65" font-weight="800">OUR CREATIVITY.</text>
+<text x="90" y="420" fill="#f5f3ed" font-family="Arial,sans-serif" font-size="29">ONE POWERFUL BRAND.</text>
+<text x="90" y="540" fill="#aaa69b" font-family="Arial,sans-serif" font-size="18">CREATIVE STRATEGY • CONTENT • DIGITAL GROWTH</text>
+</svg>
