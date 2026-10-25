@@ -15,6 +15,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (currentYear) currentYear.textContent = String(new Date().getFullYear());
 
+  const workVideos = document.querySelectorAll("#work .portfolio-video-frame video");
+  workVideos.forEach(video => {
+    video.addEventListener("play", () => {
+      workVideos.forEach(otherVideo => {
+        if (otherVideo !== video) otherVideo.pause();
+      });
+    });
+  });
+
   function closeMenu() {
     if (!menuToggle || !primaryNav) return;
     menuToggle.setAttribute("aria-expanded", "false");
@@ -55,12 +64,27 @@ document.addEventListener("DOMContentLoaded", () => {
     const selected = link.dataset.service;
     if (serviceSelect && selected) {
       const option = Array.from(serviceSelect.options).find(item => item.textContent.trim() === selected);
-      if (option) serviceSelect.value = option.value || option.textContent;
+      if (option) {
+        serviceSelect.value = option.value || option.textContent;
+        serviceSelect.dispatchEvent(new Event("change", { bubbles: true }));
+      }
     }
   }));
 
   const revealElements = document.querySelectorAll(".reveal");
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const marqueeTrack = document.querySelector(".intro-strip-inner");
+  const marqueeGroup = marqueeTrack && marqueeTrack.querySelector(".intro-strip-group");
+  if (marqueeTrack && marqueeGroup && !reduceMotion) {
+    const setMarqueeSpeed = () => {
+      marqueeTrack.style.setProperty("--marquee-duration", `${marqueeGroup.getBoundingClientRect().width / 36}s`);
+    };
+    setMarqueeSpeed();
+    if ("ResizeObserver" in window) {
+      new ResizeObserver(setMarqueeSpeed).observe(marqueeGroup);
+    }
+    window.addEventListener("resize", setMarqueeSpeed);
+  }
   if ("IntersectionObserver" in window && !reduceMotion) {
     const revealObserver = new IntersectionObserver((entries, observer) => {
       entries.forEach(entry => {

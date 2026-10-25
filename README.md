@@ -1,56 +1,46 @@
-# HANU DIGIHIVE Website
+# HANU DIGIHIVE — Website deployment package
 
-A responsive, animated HTML/CSS/JavaScript agency website using the existing black-and-gold visual identity.
+A responsive static HTML/CSS/JavaScript agency website with SEO metadata, structured data, sitemap, robots.txt, social-sharing metadata, privacy notice, 404 page, and static-host security headers.
 
-## File structure
+## Files
+- `index.html` — main landing page and SEO/schema metadata
+- `privacy.html` — privacy notice (review before publishing)
+- `404.html` — custom not-found page
+- `css/style.css`, `js/main.js` — site styles and interactions
+- `assets/` — favicon, social-sharing artwork, and original plus web-playable work samples in `Work_Samples/`
+- `robots.txt`, `sitemap.xml` — search engine crawl files
+- `site.webmanifest` — install metadata
+- `_headers` — security/cache headers for Netlify and compatible hosts
 
-```text
-hanu_digihive_website/
-├── index.html
-├── privacy.html
-├── robots.txt
-├── sitemap.xml
-├── README.md
-├── assets/
-│   ├── favicon.svg
-│   └── og-cover.svg
-├── css/
-│   └── style.css
-└── js/
-    └── main.js
-```
+## Deploy (static site; no build command)
+**Netlify:** Drag the extracted folder into Netlify Drop, or connect a Git repository. Publish directory: `.` (the folder root). The `_headers` file is read automatically.
 
-## Run locally
+**Cloudflare Pages:** Create a Pages project from a Git repository and set build command to none / blank and output directory to `.`. Confirm your chosen setup supports `_headers`; otherwise configure equivalent headers in the dashboard.
 
-Open `index.html` in a browser, or use VS Code's Live Server extension. Keep the folder structure unchanged because the HTML references `css/style.css` and `js/main.js`.
+**Vercel:** Import the folder/repository as a static site. If headers from `_headers` are not applied by your Vercel setup, configure them in `vercel.json`.
 
-## Before publishing
+**GitHub Pages:** Upload the contents to the root of a repository and enable Pages. GitHub Pages does not apply Netlify `_headers`; configure host-specific headers if needed.
 
-1. Confirm the contact email, both phone numbers, address, and domain are correct.
-2. Replace the sample concept artwork in the portfolio with real approved projects. The current panels are labelled as concepts and do not claim client work or results.
-3. Replace Instagram, Facebook and LinkedIn links in the footer with HANU DIGIHIVE's actual profile URLs.
-4. Add approved founder roles, biographies and photographs if you want to publish them.
-5. Confirm the domain's canonical URL and sitemap URLs if the live website uses a different domain or non-www version.
-6. Review the privacy notice against your actual data handling and applicable law.
-7. Test mobile layout, form submission, contact links, accessibility, page speed and HTTPS on the deployed site.
+No npm install, framework build, or video conversion is required. Upload the `.mp4` files in `assets/Work_Samples/` together with the rest of the site.
 
-## Contact form setup
+## Important launch checks
+1. **Domain:** SEO files currently use `https://www.hanudigihive.com/`. Confirm ownership, HTTPS, and whether `www` or apex is canonical. Update canonical, Open Graph URLs, structured-data URL, `robots.txt`, and `sitemap.xml` consistently if the live domain differs.
+2. **Business details:** Verify the business address, postal code, email, phone number, service areas, and all claims in `index.html` and its structured data before publishing.
+3. **Contact form:** `js/main.js` submits enquiries to FormSubmit for `info@hanudigihive.com`. The mailbox owner may need to activate the service from its confirmation email. Test a real submission on the deployed HTTPS site and check inbox/spam. Until verified, visitors can use the WhatsApp/email links. Do not tell customers the form works until tested.
+4. **Work samples:** The homepage plays the `.mp4` files in `assets/Work_Samples/`. Confirm the samples are approved for public playback before publishing.
+5. **Social profiles:** Instagram, LinkedIn and Facebook footer icons link to the supplied HANU DIGIHIVE profiles. Confirm the profiles are publicly accessible before launch.
+6. **Privacy:** Review `privacy.html` against actual data handling, retention, third-party form processing and applicable law.
+7. **Search visibility:** After launch, verify the domain in Google Search Console and Bing Webmaster Tools, submit `/sitemap.xml`, inspect the canonical homepage, and request indexing. SEO cannot guarantee rankings.
+8. **Social image:** `assets/og-cover.svg` is used for sharing metadata. Some platforms prefer a 1200×630 PNG/JPG; create and test a raster image if previews do not render correctly.
+9. **Quality assurance:** Test mobile navigation, all contact links, form delivery, 404 handling, keyboard navigation, contrast, page speed and HTTPS on the live domain.
 
-The form is configured to send an AJAX request to:
+## SEO included
+- Descriptive page title and meta description
+- Canonical URL and robots directives
+- Open Graph and Twitter card metadata
+- `MarketingAgency` JSON-LD structured data
+- XML sitemap and crawl rules
+- Semantic HTML, responsive layout and accessibility affordances
+- Web manifest, favicon and social-sharing cover
 
-`https://formsubmit.co/ajax/info@hanudigihive.com`
-
-FormSubmit typically requires the inbox owner to activate the address using the confirmation email after the first submission. Test the form on the deployed website and check spam/junk folders. Until activation is complete, visitors can use the WhatsApp link or email directly. The browser will show a fallback message if submission cannot be confirmed.
-
-For a production site that needs more control, replace this endpoint in `js/main.js` with a backend or trusted form service endpoint. Add server-side validation and spam protection for a custom backend. Do not put private API keys or credentials in front-end JavaScript.
-
-## SEO and social links
-
-- `index.html` includes title, description, canonical URL, Open Graph metadata and basic `MarketingAgency` structured data.
-- `robots.txt` and `sitemap.xml` use `https://www.hanudigihive.com/`; update these if your canonical domain differs.
-- `assets/og-cover.svg` is a simple social-sharing cover. Some social platforms prefer a raster image such as JPG/PNG; if needed, create a 1200 × 630 PNG version.
-- The social profile links currently point to platform homepages intentionally; replace them with the actual agency profiles.
-
-## Notes
-
-No analytics tracker, ad pixel, fabricated testimonials, fake client logos or invented performance metrics are included. Add analytics only after deciding what data you need and implementing the appropriate consent and privacy disclosures.
+Avoid adding keyword-stuffing meta keywords. Prioritise useful, unique page content, real portfolio evidence, accurate business information, local business profile consistency, and useful service-specific landing pages.

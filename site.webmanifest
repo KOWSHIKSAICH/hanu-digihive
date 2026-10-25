@@ -1,0 +1,17 @@
+{
+  "name": "HANU DIGIHIVE",
+  "short_name": "DIGIHIVE",
+  "description": "Creative digital marketing agency in Nellore, Andhra Pradesh.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#080808",
+  "theme_color": "#090909",
+  "icons": [
+    {
+      "src": "/assets/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
